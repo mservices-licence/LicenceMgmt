@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Apr, 2016 3:49:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.EventLicenseMapping" table="event_license_mapping" catalog="licence" optimistic-lock="version">
+        <composite-id name="id" class="models.EventLicenseMappingId">
+            <key-property name="eventIdEventId" type="int">
+                <column name="eventId_eventId" />
+            </key-property>
+            <key-property name="licenseIdLicenseId" type="int">
+                <column name="licenseId_licenseId" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="event" class="models.Event" update="false" insert="false" fetch="select">
+            <column name="eventId_eventId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="license" class="models.License" update="false" insert="false" fetch="select">
+            <column name="licenseId_licenseId" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Apr, 2016 3:49:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.RoleUserMapping" table="role_user_mapping" catalog="licence" optimistic-lock="version">
+        <composite-id name="id" class="models.RoleUserMappingId">
+            <key-property name="roleIdRoleId" type="int">
+                <column name="roleId_roleId" />
+            </key-property>
+            <key-property name="userIdUserId" type="int">
+                <column name="userId_userId" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="role" class="models.Role" update="false" insert="false" fetch="select">
+            <column name="roleId_roleId" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="models.User" update="false" insert="false" fetch="select">
+            <column name="userId_userId" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
