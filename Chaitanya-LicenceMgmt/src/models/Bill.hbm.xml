@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Apr, 2016 3:49:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.Bill" table="bill" catalog="licence" optimistic-lock="version">
+        <id name="billId" type="int">
+            <column name="billId" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="event" class="models.Event" fetch="select">
+            <column name="eventId_eventId" not-null="true" />
+        </many-to-one>
+        <property name="billDate" type="date">
+            <column name="billDate" length="0" />
+        </property>
+        <property name="partyName" type="string">
+            <column name="partyName" length="60" not-null="true" />
+        </property>
+        <property name="debitNote" type="string">
+            <column name="debitNote" length="200" not-null="true" />
+        </property>
+        <property name="invoiceNo" type="int">
+            <column name="invoiceNo" not-null="true" />
+        </property>
+        <property name="serviceTax" type="int">
+            <column name="serviceTax" not-null="true" />
+        </property>
+        <property name="grandTotal" type="int">
+            <column name="grandTotal" not-null="true" />
+        </property>
+        <property name="status" type="string">
+            <column name="status" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

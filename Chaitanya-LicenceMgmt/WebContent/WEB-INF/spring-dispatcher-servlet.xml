@@ -10,8 +10,18 @@
  <bean	id="HandlerMapping"  class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
  
 	
- <bean name="/" class="controllers.LoginController" />
- 
+ <bean name="/login" class="controllers.LoginController" />
+     <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="index.htm">indexController</prop>
+                <prop key="login.htm">LoginController</prop>
+                <prop key="master.htm">AdminController</prop>
+               
+                <prop key="user.htm">UserController</prop>
+            </props>
+        </property>
+    </bean>
  
  <bean id="viewResolver"
     	class="org.springframework.web.servlet.view.InternalResourceViewResolver" >

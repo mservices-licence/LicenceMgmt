@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Apr, 2016 3:49:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.Event" table="event" catalog="licence" optimistic-lock="version">
+        <id name="eventId" type="int">
+            <column name="eventId" />
+            <generator class="assigned" />
+        </id>
+        <property name="eventName" type="string">
+            <column name="eventName" length="60" />
+        </property>
+        <property name="comanyName" type="string">
+            <column name="comanyName" length="60" />
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="0" />
+        </property>
+        <property name="contact" type="int">
+            <column name="contact" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="75" />
+        </property>
+        <set name="bills" table="bill" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="eventId_eventId" not-null="true" />
+            </key>
+            <one-to-many class="models.Bill" />
+        </set>
+        <set name="userEventMappings" table="user_event_mapping" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="eventId_eventId" not-null="true" />
+            </key>
+            <one-to-many class="models.UserEventMapping" />
+        </set>
+        <set name="eventLicenseMappings" table="event_license_mapping" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="eventId_eventId" not-null="true" />
+            </key>
+            <one-to-many class="models.EventLicenseMapping" />
+        </set>
+    </class>
+</hibernate-mapping>
