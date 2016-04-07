@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 5 Apr, 2016 3:49:22 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="models.Payment" table="payment" catalog="licence" optimistic-lock="version">
+        <id name="paymentId" type="int">
+            <column name="paymentId" />
+            <generator class="assigned" />
+        </id>
+        <property name="paymnetMode" type="string">
+            <column name="paymnetMode" length="60" />
+        </property>
+        <property name="chequeDd" type="string">
+            <column name="chequeDD" length="60" />
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="0" />
+        </property>
+        <property name="bankName" type="string">
+            <column name="bankName" length="60" not-null="true" />
+        </property>
+        <property name="amount" type="java.lang.Integer">
+            <column name="amount" />
+        </property>
+        <property name="total" type="java.lang.Integer">
+            <column name="total" />
+        </property>
+        <property name="balance" type="java.lang.Integer">
+            <column name="balance" />
+        </property>
+        <property name="received" type="java.lang.Integer">
+            <column name="received" />
+        </property>
+    </class>
+</hibernate-mapping>
